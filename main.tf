@@ -70,6 +70,7 @@ resource "aws_iam_service_linked_role" "default" {
   count            = var.enabled && var.create_iam_service_linked_role ? 1 : 0
   aws_service_name = "es.amazonaws.com"
   description      = "AWSServiceRoleForAmazonElasticsearchService Service-Linked Role"
+  custom_suffix    = var.iam_service_linked_role_custom_suffix
 }
 
 # Role that pods can assume for access to elasticsearch and kibana
